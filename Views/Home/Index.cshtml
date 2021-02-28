@@ -1,0 +1,14 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutStart.cshtml";
+}
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Ejercicio PDA Internacional</h1>
+    <p class="lead">Este ejercicio me permitira mostrar mis conocimientos y habilidades.</p>
+    @Html.ActionLink("Comenzar", "Index", "Alumno", null, new { @class = "btn btn-primary btn-large" })
+</div>
+

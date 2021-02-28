@@ -1,0 +1,27 @@
+﻿@model PDAIntenacionalEjercicio.Models.Curso
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h3>@Model.Nombre</h3>
+<h5>Año: @Model.Año</h5>
+<h5>Semestre :@Model.Semestre</h5>
+<h5>Turno: @Model.Turno</h5>
+<h5>
+    Profesores:
+    @foreach (var p in Model.Profesores)
+    {
+        <span> @p.Nombre @p.Apellido </span>
+    }
+</h5>
+
+<p>Alumnos:</p>
+<ul>
+    @foreach (var a in Model.Alumnos)
+    {
+        <li>@a.Nombre @a.Apellido</li>
+    }
+
+</ul>
+@Html.ActionLink("Volver", "Index", "Curso", null, new { @class = "btn btn-primary btn-large" })
+
+

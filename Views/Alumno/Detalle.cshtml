@@ -1,0 +1,16 @@
+﻿@model PDAIntenacionalEjercicio.Models.Alumno
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h4>Datos del Alumno</h4>
+<ul>
+    <li>Nombre: @Model.Nombre</li>
+    <li>Apellido: @Model.Apellido</li>
+    <li>Fecha de Nacimiento: @Model.FechaDeNacimiento.ToShortDateString()</li>
+    <li>Sexo: @(Model.Sexo == "M" ? "Masculino" : "Femenino")</li>
+    <li>Fecha de Ingreso:  @Model.FechaDeIngreso.ToShortDateString()</li>
+    <li>Carrera: @Model.Carrera</li>
+</ul>
+@Html.ActionLink("Volver", "Index", "Alumno", null, new { @class = "btn btn-primary btn-large" })
+
+

@@ -1,0 +1,32 @@
+﻿@model List<PDAIntenacionalEjercicio.Models.Curso>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Cursos</h1>
+@Html.ActionLink("Cargar curso", "Create", "Curso", null, new { @class = "btn btn-primary btn-large" })
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Acccion</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Semestre</th>
+            <th scope="col">Turno</th>
+            <th scope="col">Año</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var curso in Model)
+        {
+            <tr>
+                <th scope="row"><a class="btn btn-primary btn-large" href="/Curso/Detalle/@curso.Id">Ver</a></th>
+                <td>@curso.Nombre</td>
+                <td>@curso.Semestre</td>
+                <td>@curso.Turno</td>
+                <td>@curso.Año</td>
+            </tr>
+        }
+    </tbody>
+</table>

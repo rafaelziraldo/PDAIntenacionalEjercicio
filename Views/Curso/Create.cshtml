@@ -1,0 +1,67 @@
+﻿@model PDAIntenacionalEjercicio.Models.Curso
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h4>Carga Curso</h4>
+<hr />
+@using (Html.BeginForm("Create", "Curso", FormMethod.Post))
+{
+    <form>
+        <div class="mb-3 ">
+
+            @Html.LabelFor(model => model.Nombre, new { @class = "form-label" })
+            @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Nombre, String.Empty, new { @class = "help-inline", @style = "color:red" })
+
+        </div>
+
+        <div class="mb-3 ">
+
+            @Html.LabelFor(model => model.Año, new { @class = "form-label" })
+            @Html.TextBoxFor(model => model.Año, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Año, String.Empty, new { @class = "help-inline", @style = "color:red" })
+
+        </div>
+
+
+        <div class="mb-3 ">
+
+            @Html.LabelFor(model => model.Semestre, new { @class = "form-label" })
+            @Html.DropDownListFor(m => m.Semestre, new List<SelectListItem>
+                    { new SelectListItem{Text="Primero", Value="1"},
+                      new SelectListItem{Text="Segundo", Value="2"}}, "Selecionar uno", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Semestre, String.Empty, new { @class = "help-inline", @style = "color:red" })
+
+        </div>
+        <div class="mb-3 ">
+
+            @Html.LabelFor(model => model.Turno, new { @class = "form-label" })
+            @Html.DropDownListFor(m => m.Turno, new List<SelectListItem>
+                    { new SelectListItem{Text="Mañana", Value="Mañana"},
+                      new SelectListItem{Text="Tarde", Value="Tarde"},
+                      new SelectListItem{Text="Noche", Value="Noche"}}, "Selecionar uno", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Semestre, String.Empty, new { @class = "help-inline", @style = "color:red" })
+
+        </div>
+        <div class="mb-3 ">
+
+            @Html.LabelFor(model => model.Profesores, new { @class = "form-label" })
+            @Html.ListBoxFor(m => m.ProfesoresIds, Model.ProfesoresView, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Profesores, String.Empty, new { @class = "help-inline", @style = "color:red" })
+
+        </div>
+        <div class="mb-3 ">
+
+            @Html.LabelFor(model => model.Alumnos, new { @class = "form-label" })
+            @Html.ListBoxFor(m => m.AlumnosIds, Model.AlumnosView, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Alumnos, String.Empty, new { @class = "help-inline", @style = "color:red" })
+
+        </div>
+
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+}
+
+
+
+

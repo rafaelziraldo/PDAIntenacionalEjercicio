@@ -1,0 +1,31 @@
+﻿@model List<PDAIntenacionalEjercicio.Models.Profesor>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Profesores</h1>
+@Html.ActionLink("Cargar Profesor", "Create", "Profesor", null, new { @class = "btn btn-primary btn-large" })
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">DNI</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var profesor in Model)
+        {
+            <tr>
+                <td>@profesor.Nombre</td>
+                <td>@profesor.Apellido</td>
+                <td>@profesor.DNI</td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
